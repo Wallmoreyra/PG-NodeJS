@@ -1,0 +1,146 @@
+.linea-divisora {
+    width: 30%;
+    height: 1px;
+    background-color: black;
+    border: none;
+    margin: 1rem auto;
+  }
+  
+  /* Estilos comunes */
+  .nosotros-titulo {
+    color: black;
+    text-align: center;
+  }
+  
+  .const-card-pers {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .const-card-pers-info {
+    margin: 0;
+    color: black;
+  }
+  
+  .const-card-pers-info h2 {
+    color: black;
+    margin-top: 1vh;
+    margin-bottom: 1vh;
+  }
+  
+  .const-card-pers-info p {
+    color: black;
+    margin-top: 0;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+  
+  /* Media Queries */
+  @media (max-width: 480px) {
+    .nosotros-titulo {
+      font-size: larger;
+    }
+  
+    .cont-card-pers-img img {
+      height: 70vw;
+      width: 70vw;
+    }
+  
+    .const-card-pers-info p {
+      margin-bottom: 5vh;
+    }
+  }
+  
+  @media (min-width: 481px) and (max-width: 1024px) {
+    .nosotros-titulo {
+      font-family: "PT Serif", serif;
+      font-size: 4vw;
+      font-style: italic;
+    }
+  
+    .const-card-pers {
+      margin-bottom: 2vw;
+    }
+  
+    .cont-card-pers-img img {
+      height: 60vw;
+      width: 60vw;
+    }
+  
+    .const-card-pers-info h2 {
+      font-size: 4vw;
+    }
+  
+    .const-card-pers-info p {
+      margin-bottom: 1vh;
+    }
+  }
+  
+  @media (min-width: 1025px) {
+    .nosotros-titulo {
+      font-family: "PT Serif", serif;
+      font-size: 2vw;
+      font-style: italic;
+    }
+  
+    .const-card-pers {
+      background: linear-gradient(51deg, rgba(255,255,255,1) 0%, rgba(120,127,145,0.6348914565826331) 80%);
+      border-radius: 0 30px 0 30px;
+      margin: 0 1rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+  
+    .cont-card-pers-img {
+      height: 500px;
+      display: flex;   
+      justify-content: center;
+      align-items: center;
+      
+    }
+  
+    .cont-card-pers-img img {
+      border-radius: 10% 0 10% 0;
+      border: solid 2px rgb(236, 235, 235);
+      height: 450px;
+      width: 450px;
+      margin-left: 1rem;
+      box-shadow: 27px 43px 44px -27px rgba(8,8,8,1);
+    }
+  
+    .const-card-pers-info {
+      margin: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+  
+    .const-card-pers-info h2 {
+      margin-left: 2rem;
+      font-family: "PT Serif", serif;
+      font-size: 2vw;
+      font-style: oblique italic;
+      text-align: start;
+    }
+  
+    .const-card-pers-info p {
+      margin-left: 1rem;
+      margin-right: 1rem;
+      font-family: "PT Serif", serif;
+      font-weight: 700;
+      font-style: oblique;
+    }
+    .const-card-der{
+      display: flex;
+      flex-direction: row-reverse;
+      padding-right: 1rem;
+    }
+    .const-card-der h2{
+      margin-left: 5rem;
+    }
+    
+  }

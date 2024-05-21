@@ -1,5 +1,7 @@
 // router.js
+import { FormularioRegistro } from './components/Form/Form.js';
 import { HomePage } from './components/HomePage.js';
+import { NosotrosPage } from './components/nosotros/NosotrosPage.js';
 
 
 function navigate(path) {
@@ -12,9 +14,9 @@ function route() {
   const mainContent = document.getElementById('main-content');
 
   if (path === '/nosotros') {
-    mainContent.innerHTML = '<h1>About Page</h1>';
+    mainContent.innerHTML = NosotrosPage();
   } else if (path === '/contacto') {
-    mainContent.innerHTML = '<h1>Contact Page</h1>';
+    mainContent.innerHTML = FormularioRegistro();
   } else {
     mainContent.innerHTML = HomePage();
   }
