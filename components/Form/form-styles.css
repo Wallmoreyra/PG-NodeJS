@@ -1,0 +1,50 @@
+.cont-regristro{
+    color: black;
+    background-color: aquamarine;
+}
+
+.cont-de-erroes{
+    color: red;
+}
+.cont-de-succese{
+    color: green;
+}
+
+.cont-formulario{
+    color: black;
+}
+
+.cont-form-item{
+    color: black;
+}
+
+.radio-group{
+    color: black;
+}
+
+.checkbox-group{
+    color: black;
+}
+
+
+/* Media Queries */
+@media (max-width: 480px) {
+    .cont-regristro{
+        color: black;
+        background-color: rgb(216, 38, 112);
+    }
+}
+  
+@media (min-width: 481px) and (max-width: 1024px) {
+    .cont-regristro{
+        color: black;
+        background-color: rgb(177, 196, 11);
+    }
+}
+  
+@media (min-width: 1025px) {
+    .cont-regristro{
+        color: black;
+    }
+    
+}

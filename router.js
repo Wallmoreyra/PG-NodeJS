@@ -1,5 +1,6 @@
 // router.js
 import { FormularioRegistro } from './components/Form/Form.js';
+import { validateForm } from './components/Form/validacionForm.js';
 import { HomePage } from './components/HomePage.js';
 import { NosotrosPage } from './components/nosotros/NosotrosPage.js';
 
@@ -17,6 +18,22 @@ function route() {
     mainContent.innerHTML = NosotrosPage();
   } else if (path === '/contacto') {
     mainContent.innerHTML = FormularioRegistro();
+    const form = document.querySelector('#registroForm');
+    const resetButton = document.getElementById('resetButton');
+
+    if (form) {
+      form.addEventListener('submit', (event) => {
+        validateForm(event);
+      });
+    }
+
+    if (resetButton) {
+      resetButton.addEventListener('click', () => {
+        document.getElementById('error-messages').innerHTML = '';
+        document.getElementById('success-message').innerHTML = '';
+      });
+    }
+    
   } else {
     mainContent.innerHTML = HomePage();
   }
