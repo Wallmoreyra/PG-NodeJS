@@ -1,3 +1,5 @@
+import { navigate } from '../../router.js';
+
 export function validateForm(event) {
     event.preventDefault();
     //console.log("se envio!!")
@@ -9,6 +11,15 @@ export function validateForm(event) {
     const userName = document.getElementById('userName').value.trim();
     const profileImage = document.getElementById('img').value.trim();
     const birthdate = document.getElementById('birthdate').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const comfPassword = document.getElementById('password-conf').value.trim();
+
+    // Extracción de valores de checkboxes y radio buttons
+    const notificElement = document.querySelector('input[name="notific"]:checked');
+    const notific = notificElement ? notificElement.value : null;
+
+    const categOfGameElements = document.querySelectorAll('input[name="categOfGame"]:checked');
+    const categOfGame = Array.from(categOfGameElements).map(el => el.value);
     
     let valid = true;
     let messages = [];
@@ -67,29 +78,51 @@ export function validateForm(event) {
       }
     }
 
-    // Validación de la fecha de nacimiento
-    if (birthdate === '') {
+    // Validación de password y confirmacion de password
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
+    if (password === '') {
       valid = false;
-      messages.push('Fecha de Nacimiento es requerida');
-    } else {
-      const birthDateObj = new Date(birthdate);
-      const today = new Date();
-      const age = today.getFullYear() - birthDateObj.getFullYear();
-      const monthDifference = today.getMonth() - birthDateObj.getMonth();
-      const dayDifference = today.getDate() - birthDateObj.getDate();
-  
-      // Ajustar la edad si la fecha actual es anterior a la fecha de nacimiento en el año actual
-      if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
-        age--;
-      }
-  
-      if (age < 18) {
-        valid = false;
-        messages.push('Debes ser mayor de 18 años');
-      }
+      messages.push('La contraseña es requerida');
+    } else if (!passwordRegex.test(password)) {
+      valid = false;
+      messages.push('La contraseña debe tener al menos 8 caracteres, una mayúscula, una minúscula, un número y un símbolo');
     }
 
+    if (comfPassword === '') {
+      valid = false;
+      messages.push('La confirmacion de password es requerida');
+    } else if (comfPassword !== password) {
+      valid = false;
+      messages.push('Las contraseñas no pueden ser diferentes!!!');
+    }
 
+    // Validación de la fecha de nacimiento
+     if (birthdate === '') {
+        valid = false;
+        messages.push('Fecha de Nacimiento es requerida');
+      } else {
+        const birthDateObj = new Date(birthdate);
+        const today = new Date();
+        let age = today.getFullYear() - birthDateObj.getFullYear();
+        const monthDifference = today.getMonth() - birthDateObj.getMonth();
+        const dayDifference = today.getDate() - birthDateObj.getDate();
+    
+        // Ajustar la edad si la fecha actual es anterior a la fecha de nacimiento en el año actual
+        if (monthDifference < 0 || (monthDifference === 0 && dayDifference < 0)) {
+          age--;
+        }
+    
+        if (age < 18) {
+          valid = false;
+          messages.push('Debes ser mayor de 18 años');
+        }
+      }
+
+    // Validación de que al menos un checkbox de "Categoría de interés" esté seleccionado
+    if (categOfGame.length === 0) {
+      valid = false;
+      messages.push('Debes seleccionar al menos una categoría de interés');
+    }
 
     // Si hay errores, agregar mensajes al div de mensajes de error
     if (!valid) {
@@ -97,6 +130,21 @@ export function validateForm(event) {
         errorMessages.innerHTML += `<p>${message}</p>`;
       });
     } else {
-      successMessage.innerHTML = '<p>✔ Sus datos fueron ingresados de manera correcta</p>';
+      successMessage.innerHTML = `<p>✔ Sus datos fueron ingresados de manera correcta</p><p>Bienvenido/a ${userName}</p>`;
+    // Mostrar los datos ingresados!!!! menos el password
+      console.log({
+        name,
+        surname,
+        userName,
+        birthdate,
+        profileImage,
+        categOfGame,
+        notific
+      });
+    // Redirigir al usuario a la página de inicio después de 2 segundos
+    setTimeout(() => {
+      navigate('/');
+    }, 4000);
+      
     }
   }

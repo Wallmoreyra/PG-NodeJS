@@ -2,6 +2,20 @@
     color: black;
     background-color: aquamarine;
 }
+.cont-regristro h1{
+    color: black;
+    text-align: center;
+    font-family: "PT Serif", serif;
+    font-weight: 700;
+    font-style: oblique;
+}
+
+.cont-form-error{
+    background-color: blanchedalmond;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
 
 .cont-de-erroes{
     color: red;
