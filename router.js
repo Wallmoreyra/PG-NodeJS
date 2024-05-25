@@ -1,7 +1,7 @@
 // router.js
 import { FormularioRegistro } from './components/Form/Form.js';
 import { validateForm } from './components/Form/validacionForm.js';
-import { HomePage } from './components/HomePage.js';
+import { HomePage } from './components/home/HomePage.js';
 import { NosotrosPage } from './components/nosotros/NosotrosPage.js';
 
 
@@ -31,6 +31,8 @@ function route() {
       resetButton.addEventListener('click', () => {
         document.getElementById('error-messages').innerHTML = '';
         document.getElementById('success-message').innerHTML = '';
+        const contMessage2 = document.getElementById('cont-error-sus');
+        contMessage2.classList.add('hidden');
       });
     }
     

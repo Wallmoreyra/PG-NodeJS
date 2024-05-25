@@ -1,6 +1,8 @@
 .cont-regristro{
     color: black;
-    background-color: aquamarine;
+    
+    display: flex;
+    flex-direction: column;
 }
 .cont-regristro h1{
     color: black;
@@ -11,17 +13,62 @@
 }
 
 .cont-form-error{
-    background-color: blanchedalmond;
     display: flex;
     flex-direction: row-reverse;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
-.cont-de-erroes{
-    color: red;
+.cont-reg-objeto{
+    padding: 1vw 1vw 1vw 1vw;
+    background-color: bisque;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    width: 300px;
+    text-align: center;
+    margin-bottom: 1rem;
 }
+
+
+.visible{
+    opacity: 1;
+    transition: opacity 2s ease-in-out;
+    height: auto;
+}
+
+/* Stilos del contenedor de errores*/
+
+.cont-de-errores{
+    color: red;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: "PT Serif", serif;
+    font-weight: 900;
+    
+}
+
+.cont-de-errores p{
+    background-color: rgb(233, 217, 197);
+    border: solid 4px rgba(240, 8, 8, 0.5);
+    box-shadow: 0 0 10px rgba(240, 8, 8, 0.5);
+    padding: .5rem;
+    border-radius: 25px 0 25px 0;
+}
+
+/* Stilos del contenedor de susscese*/
 .cont-de-succese{
     color: green;
+    font-family: "PT Serif", serif;
+    font-weight: 900;
+    border: solid 4px rgb(69, 173, 9);
+    padding: 1rem;
+    border-radius: 0 25px 0 25px;
+    height: fit-content;
+    margin: auto;
+    background-color: antiquewhite;
 }
 
 .cont-formulario{
@@ -30,35 +77,141 @@
 
 .cont-form-item{
     color: black;
+    display: flex;
+    flex-direction: column;
+    margin-top: .5rem;
 }
+
+.cont-form-item label{
+    margin-bottom: 0.2rem;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.cont-form-item input{
+    text-align: center;
+}
+/* Stilos del radioButton*/
 
 .radio-group{
     color: black;
+
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
+
+.radiobutton-container{
+    color: black;
+    display: flex;
+}
+.radio-item{
+    width: 50%;
+  }
+
+/* Stilos de los checkbox*/
 
 .checkbox-group{
     color: black;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+
 }
+
+.checkbox-title {
+    flex: 1;
+    padding-right: 1rem; /* Ajusta el espacio entre el título y los checkboxes */
+  }
+  
+  .checkbox-container {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+    
+  flex-direction: row;
+  align-items: flex-start;
+  }
+  
+  .checkbox-item {
+    width: 50%; /* Puedes ajustar este valor según tus necesidades */
+    padding: 0.5rem 0;
+    text-align: left;
+  }
+  
+  .checkbox-item label {
+    margin-left: 0.5rem;
+  }
+  
+/* Stilos de los botones*/
+
+.cont-button-sub {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem; /* Añade espacio superior si es necesario */
+  }
+  
+  .cont-button-sub input {
+    width: 100px;
+    border-radius: 10px;
+    background-color: blue;
+    color: antiquewhite;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .cont-button-sub input:hover {
+    background-color: rgb(2, 121, 121);
+    transform: scale(1.1); /* Escala el botón un poco */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Añade una sombra */
+  }
+  
+  .cont-button-sub input:active {
+    transform: scale(1); /* Reduce el efecto de escala al hacer clic */
+  }
 
 
 /* Media Queries */
 @media (max-width: 480px) {
     .cont-regristro{
         color: black;
-        background-color: rgb(216, 38, 112);
     }
+
+    .cont-form-error{
+        background-color: rgb(245, 245, 245);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .cont-reg-objeto{
+        padding: 1vw 1vw 1vw 1vw;
+        background-color: azure;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        width: 300px;
+        text-align: center;
+    }
+
 }
-  
+
 @media (min-width: 481px) and (max-width: 1024px) {
     .cont-regristro{
         color: black;
-        background-color: rgb(177, 196, 11);
     }
 }
-  
+
 @media (min-width: 1025px) {
     .cont-regristro{
         color: black;
     }
     
+}
+
+.hidden{
+    display: none;
 }

@@ -13,6 +13,7 @@ export function validateForm(event) {
     const birthdate = document.getElementById('birthdate').value.trim();
     const password = document.getElementById('password').value.trim();
     const comfPassword = document.getElementById('password-conf').value.trim();
+    const email = document.getElementById('email').value.trim();
 
     // Extracción de valores de checkboxes y radio buttons
     const notificElement = document.querySelector('input[name="notific"]:checked');
@@ -23,12 +24,15 @@ export function validateForm(event) {
     
     let valid = true;
     let messages = [];
+    const contMessage = document.getElementById('cont-error-sus');
+    contMessage.classList.add('hidden');
     // Validación del formulario
 
     const errorMessages = document.getElementById('error-messages');
     const successMessage = document.getElementById('success-message');
     errorMessages.innerHTML = ''; // Limpiar mensajes anteriores
     successMessage.innerHTML = ''; // Limpiar mensaje de éxito anterior
+    
   
     // Validación del nombre
     const nameRegex = /^[a-z]+$/;
@@ -55,6 +59,16 @@ export function validateForm(event) {
       valid = false;
       messages.push('El Apellido debe tener mas de 4 caracteres');
     }
+
+     // Validación del apellido
+     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+     if (email === '') {
+       valid = false;
+       messages.push('Correo Electrónico es requerido.');
+      } else if (!emailRegex.test(email)) {
+        valid = false;
+        messages.push('Correo Electrónico debe tener un formato válido.');
+      }
 
     // Validación del nombre de usuario
     const userNameRegex = /^[a-zA-Z0-9]+$/;
@@ -128,9 +142,15 @@ export function validateForm(event) {
     if (!valid) {
       messages.forEach(message => {
         errorMessages.innerHTML += `<p>${message}</p>`;
+        contMessage.classList.remove('hidden');
+        errorMessages.classList.remove('hidden');
+        successMessage.classList.add('hidden');
       });
     } else {
-      successMessage.innerHTML = `<p>✔ Sus datos fueron ingresados de manera correcta</p><p>Bienvenido/a ${userName}</p>`;
+        successMessage.innerHTML = `<p>✔ Sus datos fueron ingresados de manera correcta</p><p>Bienvenido/a ${userName}</p>`;
+        contMessage.classList.remove('hidden');
+        successMessage.classList.remove('hidden');
+        errorMessages.classList.add('hidden');
     // Mostrar los datos ingresados!!!! menos el password
       console.log({
         name,
@@ -142,9 +162,9 @@ export function validateForm(event) {
         notific
       });
     // Redirigir al usuario a la página de inicio después de 2 segundos
-    setTimeout(() => {
-      navigate('/');
-    }, 4000);
+    // setTimeout(() => {
+    //   navigate('/');
+    // }, 4000);
       
     }
   }
