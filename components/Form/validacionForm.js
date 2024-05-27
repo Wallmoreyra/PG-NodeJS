@@ -156,15 +156,17 @@ export function validateForm(event) {
         name,
         surname,
         userName,
+        email,
         birthdate,
         profileImage,
         categOfGame,
         notific
       });
-    // Redirigir al usuario a la página de inicio después de 2 segundos
-    // setTimeout(() => {
-    //   navigate('/');
-    // }, 4000);
+
+    //Redirigir al usuario a la página de inicio después de 4 segundos
+    setTimeout(() => {
+      navigate('/');
+    }, 4000);
       
     }
   }

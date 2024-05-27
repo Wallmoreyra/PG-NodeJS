@@ -1,7 +1,7 @@
 import { Header } from './components/header/Header.js';
 import { Footer } from './components/footer/Footer.js';
 import { route, navigate } from './router.js';
-import { validateForm } from './components/Form/validacionForm.js';
+
 
 function renderApp() {
   document.getElementById('app').innerHTML = `
