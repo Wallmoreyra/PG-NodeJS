@@ -1,20 +1,102 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #282c34;
-    color: white;
-    font-family: Arial, sans-serif;
-    margin: 0;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #282c34;
+  color: white;
+  font-family: Arial, sans-serif;
+  margin: 0;
+}
 
-  .ini-container {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
- 
+.ini-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.cont-btn-ingr{
+  background-color: rgb(0, 0, 0, 0);
+  padding: 2rem;
+  border-radius: 4rem;
   
+}
+
+.ini-container{
+height: 100%;
+width: 100%;
+background-image: url('./utils/pixel-jeff-night-shift.gif');
+background-size: auto;
+background-repeat: no-repeat;
+background-position: center;
+}
+
+/* Media Queries */
+@media (max-width: 480px) {
+.ini-container{
+  background-size: 100%;
+  background-repeat: repeat;
+}
+.cont-btn-ingr{
+  background-color: rgb(14, 15, 15, 30%);
+}
+.ini-container button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  background-color: rgb(0, 0, 0, 0);
+  color: white;
+  border: 2px solid white;
+}
+}
+
+@media (min-width: 481px) and (max-width: 1024px) {
+.ini-container{
+  background-size: 100%;
+  background-repeat: repeat;
+}
+.cont-btn-ingr{
+  background-color: rgb(14, 15, 15, 30%);
+}
+.ini-container button {
+  padding: 1rem 2rem;
+  font-size: 1rem;
+  border-radius: 2rem;
+  background-color: rgb(0, 0, 0, 0);
+  color: white;
+  border: 2px solid white;
+}
+}
+
+@media (min-width: 1025px) {
+.cont-btn-ingr:hover{
+  background-color: rgb(14, 15, 15, 80%);
+  padding: 2rem;
+  border-radius: 4rem;
+  border: 2px solid;
+
+  transform: scale(110%);
+  transition: 1s .5s;
+}
+
+.ini-container h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+.ini-container button {
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border-radius: 2rem;
+  background-color: rgb(0, 0, 0, 0);
+  border: 2px solid white;
+  color: aliceblue; 
+}
+
+.ini-container button:hover {
+  color: rgb(10, 10, 10);
+  background-color: rgba(226, 42, 9, 0.5);
+  font-weight: bolder;
+}
+}
